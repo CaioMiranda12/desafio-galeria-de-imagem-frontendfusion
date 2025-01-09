@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Container } from "./components/container";
 import { useState } from "react";
 import { AuthorCard } from "./components/authorCard";
+import { Gallery } from "./components/gallery";
 
 function App() {
   const [images, setImages] = useState([])
@@ -37,6 +38,7 @@ function App() {
 
       <Container>
         <div>
+
           <div className="flex justify-center mt-6">
             <h2 className="text-xl font-bold uppercase sm:text-3xl mb-5">AUTOR</h2>
           </div>
@@ -56,9 +58,10 @@ function App() {
 
             }
           </div>
+
+          <Gallery images={images} />
+
         </div>
-
-
       </Container>
 
     </>
