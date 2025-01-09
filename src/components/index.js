@@ -3,4 +3,5 @@ export * from './container'
 export * from './gallery'
 export * from './header'
 export * from './imageCard'
+export * from './UnfavoriteImageCard'
 
