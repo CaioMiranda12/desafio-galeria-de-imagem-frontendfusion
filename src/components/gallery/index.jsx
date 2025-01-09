@@ -3,7 +3,7 @@ import { ImageCard } from '../imageCard'
 
 
 export function Gallery({ images }) {
-  console.log(images)
+
   return (
     <section>
       <div className="flex justify-center mt-6">

@@ -6,7 +6,7 @@ import { Gallery } from "./components/gallery";
 
 function App() {
   const [images, setImages] = useState([])
-  const [filteredImage, setFilteredImage] = useState(null)
+  const [filteredImages, setFilteredImages] = useState(null)
   const [authorFilter, setAuthorFilter] = useState('')
 
   useEffect(() => {
@@ -25,7 +25,21 @@ function App() {
     fetchImages();
   }, [])
 
+  useEffect(() => {
+    if (authorFilter) {
+      const authorImages = images.filter(item => item.author === authorFilter)
+      setFilteredImages(authorImages)
+    } else {
+      setFilteredImages(images)
+    }
+
+  }, [authorFilter, images])
+
   const seenNames = [];
+
+  function handleAuthorClick(image) {
+    setAuthorFilter(image.author)
+  }
 
   return (
     <>
@@ -50,16 +64,18 @@ function App() {
               }
 
               seenNames.push(image.author)
-              // return <li key={image.id}>{image.author}</li>
+
               return (
-                <AuthorCard key={image.id} image={image} />
+                <div key={image.id} onClick={() => handleAuthorClick(image)}>
+                  <AuthorCard image={image} />
+                </div>
               )
             })
 
             }
           </div>
 
-          <Gallery images={images} />
+          <Gallery images={filteredImages} />
 
         </div>
       </Container>
