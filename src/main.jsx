@@ -1,15 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
+
 import './index.css'
-import { Header } from './components/header'
 import { FavoritesProvider } from './hooks/FavoriteContext.jsx'
+import AppRoutes from './routes/routes.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <FavoritesProvider>
-      <Header />
-      <App />
+      <AppRoutes />
     </FavoritesProvider>
   </React.StrictMode>,
 )

@@ -1,10 +1,9 @@
 import { useEffect } from "react";
-import { Container } from "./components/container";
+import { AuthorCard, Container, Gallery } from '../components'
 import { useState } from "react";
-import { AuthorCard } from "./components/authorCard";
-import { Gallery } from "./components/gallery";
 
-function App() {
+
+export function Home() {
   const [images, setImages] = useState([])
   const [filteredImages, setFilteredImages] = useState(null)
   const [authorFilter, setAuthorFilter] = useState('')
@@ -85,4 +84,3 @@ function App() {
   );
 }
 
-export default App

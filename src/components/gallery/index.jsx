@@ -4,8 +4,7 @@ import { useFavorites } from '../../hooks/FavoriteContext'
 
 
 export function Gallery({ images }) {
-  const { favorites, addFavorite } = useFavorites()
-  console.log(favorites)
+  const { addFavorite } = useFavorites()
 
   function handleFavoriteImage(item) {
     addFavorite(item)
