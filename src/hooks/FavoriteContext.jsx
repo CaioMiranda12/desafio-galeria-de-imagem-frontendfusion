@@ -1,14 +1,32 @@
 import PropTypes from 'prop-types';
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
+
+const FAVORITES_STORAGE_KEY = 'favorites';
 
 const FavoritesContext = createContext({})
 
 export const FavoritesProvider = ({ children }) => {
   const [favorites, setFavorites] = useState([])
 
+  const saveOnLocalStorage = (item) => {
+    localStorage.setItem(FAVORITES_STORAGE_KEY, JSON.stringify(item))
+  }
+
+  useEffect(() => {
+    const storedFavorites = localStorage.getItem(FAVORITES_STORAGE_KEY)
+
+    if (storedFavorites) {
+      setFavorites(JSON.parse(storedFavorites))
+    }
+  }, [])
+
   const addFavorite = (item) => {
     if (!favorites.some(fav => fav.id === item.id)) {
-      setFavorites([...favorites, item])
+
+      const updatedFavorites = [...favorites, item]
+
+      setFavorites(updatedFavorites)
+      saveOnLocalStorage(updatedFavorites)
     }
   }
 
@@ -16,6 +34,7 @@ export const FavoritesProvider = ({ children }) => {
     const filteredFavorite = favorites.filter(fav => fav.id !== id)
 
     setFavorites(filteredFavorite)
+    saveOnLocalStorage(filteredFavorite)
   }
 
   return (

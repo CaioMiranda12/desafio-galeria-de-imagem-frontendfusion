@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { AuthorCard, Container, Gallery } from '../components'
+import { AuthorCard, Container, Gallery } from '../../components'
 import { useState } from "react";
 
 
