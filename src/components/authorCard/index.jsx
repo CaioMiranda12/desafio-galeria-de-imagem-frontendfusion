@@ -15,7 +15,7 @@ export function AuthorCard({ image }) {
       </div>
 
       <div className="flex justify-between pt-2">
-        <p className="truncate">{image.author}</p>
+        <p className="truncate font-bold sm:text-lg">{image.author}</p>
         <button>
           <FaArrowCircleRight size={24} color='#000' />
         </button>

@@ -1,13 +1,17 @@
 import PropTypes from "prop-types"
 import { ImageCard } from '../imageCard'
 import { useFavorites } from '../../hooks/FavoriteContext'
+import { useNavigate } from "react-router-dom"
 
 
 export function Gallery({ images }) {
   const { addFavorite } = useFavorites()
 
+  const navigate = useNavigate()
+
   function handleFavoriteImage(item) {
     addFavorite(item)
+    navigate('/favoritos')
   }
 
   return (
