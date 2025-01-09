@@ -9,6 +9,7 @@ function App() {
   const [filteredImages, setFilteredImages] = useState(null)
   const [authorFilter, setAuthorFilter] = useState('')
 
+
   useEffect(() => {
     async function fetchImages() {
       try {

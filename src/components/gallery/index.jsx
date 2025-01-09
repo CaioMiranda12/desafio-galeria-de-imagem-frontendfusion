@@ -1,8 +1,15 @@
 import PropTypes from "prop-types"
 import { ImageCard } from '../imageCard'
+import { useFavorites } from '../../hooks/FavoriteContext'
 
 
 export function Gallery({ images }) {
+  const { favorites, addFavorite } = useFavorites()
+  console.log(favorites)
+
+  function handleFavoriteImage(item) {
+    addFavorite(item)
+  }
 
   return (
     <section>
@@ -12,7 +19,9 @@ export function Gallery({ images }) {
 
       <section className="grid sm:grid-cols-2 md:grid-cols-3 gap-7">
         {images && images.map(item => (
-          <ImageCard key={item.id} image={item} />
+          <div key={item.id} onClick={() => handleFavoriteImage(item)}>
+            <ImageCard image={item} />
+          </div>
         ))}
       </section>
     </section>
