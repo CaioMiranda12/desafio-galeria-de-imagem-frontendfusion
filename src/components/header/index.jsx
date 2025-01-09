@@ -8,12 +8,12 @@ export function Header() {
 
   return (
     <header className="max-w-screen-xl mx-auto h-16 flex justify-between items-center px-2">
-      <div className="flex gap-3 items-center">
+      <div className="flex gap-3 sm:gap-5 items-center">
         <Link to='/'>
           <h1 className="text-black text-2xl sm:text-3xl font-bold">Beauty Gallery</h1>
         </Link>
 
-        <nav className="flex items-center gap-2">
+        <nav className="flex items-center gap-2 sm:gap-5">
           <Link to='/' className="sm:text-xl">
             <h1 className="sm:text-xl hover:text-orange-400 hover:font-bold">Inicio</h1>
           </Link>
