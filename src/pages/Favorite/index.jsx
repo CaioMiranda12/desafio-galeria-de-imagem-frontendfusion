@@ -2,12 +2,7 @@ import { Container, UnfavoriteImageCard } from '../../components'
 import { useFavorites } from '../../hooks/FavoriteContext'
 
 export function Favorite() {
-  const { favorites, removeFavorite } = useFavorites()
-
-  function handleUnfavoriteImage(id) {
-    removeFavorite(id)
-  }
-
+  const { favorites } = useFavorites()
 
   return (
     <main className="w-full">
@@ -23,7 +18,7 @@ export function Favorite() {
           <section className='grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-7'>
             {favorites && favorites.length > 0 && (
               favorites.map(item => (
-                <div key={item.id} onClick={() => handleUnfavoriteImage(item.id)}>
+                <div key={item.id}>
                   <UnfavoriteImageCard image={item} />
                 </div>
               ))
